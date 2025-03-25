@@ -14,6 +14,10 @@ public class MergeSort {
     }
 
     public static void merge(int[] a, int low, int mid, int high) {
+        if (b == null) { // Ensure b is initialized before use
+            b = new int[a.length];
+        }
+
         int i = low, j = mid + 1, k = low;
 
         while (i <= mid && j <= high) {
@@ -47,12 +51,13 @@ public class MergeSort {
         System.out.println("Enter the number of elements in the array:");
         int n = scanner.nextInt();
         int[] array = new int[n];
-        b = new int[n]; // Initialize the auxiliary array
 
         System.out.println("Enter the elements of the array:");
         for (int i = 0; i < n; i++) {
             array[i] = scanner.nextInt();
         }
+
+        b = new int[n]; // Initialize the auxiliary array properly
 
         mergeSort(array, 0, array.length - 1);
 
